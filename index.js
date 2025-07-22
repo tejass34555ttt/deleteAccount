@@ -35,6 +35,17 @@ app.post("/delete-user", async (req, res) => {
   if (ADMIN_SECRET && secret !== ADMIN_SECRET) {
     return res.status(403).json({ success: false, message: "Unauthorized" });
   }
+  try {
+    // 1. Delete documents belonging to user
+    const docs = await databases.listDocuments(DATABASE_ID, COLLECTION_ID, [
+      // Match the userId field (assuming your doc has a userId field)
+      // Update this filter field name if it's different
+      Appwrite.Query.equal("userId", userId)
+    ]);
+
+    for (const doc of docs.documents) {
+      await databases.deleteDocument(DATABASE_ID, COLLECTION_ID, doc.$id);
+    }
 
   if (!userId) {
     return res.status(400).json({ success: false, message: "Missing userId" });
