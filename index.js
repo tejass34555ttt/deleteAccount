@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 const client = new Client()
     .setEndpoint("http://89.116.21.143/v1")
     .setProject("68492a7c0008fcc0cbc2")
-    .setKey(""standard_075c52611a9f1b42bff0e7e4f7dbb16db45ddd326f1da5b0783cbd2eda06eb9e0655155260b11d6ed1945b279d002121d5ecba2817eafc5f0cba088c8e786bb0c43b2be9b6691d0a1d5421a66b1471cf03c6331ecbc61aa784831dd29a14041e95c35d5217421ed9d264f7260394dc92509d3b20fcb6bffa28f13711e7735c3d"); // Use your real key
+    .setKey("standard_075c52611a9f1b42bff0e7e4f7dbb16db45ddd326f1da5b0783cbd2eda06eb9e0655155260b11d6ed1945b279d002121d5ecba2817eafc5f0cba088c8e786bb0c43b2be9b6691d0a1d5421a66b1471cf03c6331ecbc61aa784831dd29a14041e95c35d5217421ed9d264f7260394dc92509d3b20fcb6bffa28f13711e7735c3d"); // Use your real key
 
 const users = new Users(client);
 const databases = new Databases(client);
